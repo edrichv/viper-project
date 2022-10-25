@@ -1,11 +1,11 @@
-read_verilog out/RCA16.v
+read_verilog circuits/RCA16.v
 hierarchy -check -top RCA16
 flatten
 
 proc; opt; memory; opt; fsm; opt; techmap; opt
 
-abc -fast -liberty data/LSmitll2p1p1/LSmitll2p1p1.lib 
+abc -fast -liberty data/LSmitll_v2p1p1/LSmitll_v2p1p1.lib 
 
 clean
 
-write_blif -impltf -gates -icells out/RCA2.blif
+write_blif -impltf -gates -icells out/RCA16.blif
