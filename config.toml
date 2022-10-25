@@ -1,8 +1,8 @@
 [FILE_LOCATIONS]
 
     defFileName     = "out/RCA16_route.def"
-    cirFileName     = "out/RCA16.cir"
-    vFileName       = "out/RCA16.v"
+    cirFileName     = "out/RCA16_sim.cir"
+    vFileName       = "out/RCA16_sim.v"
 
 [PARAMETERS]
 

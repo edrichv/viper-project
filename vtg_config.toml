@@ -1,5 +1,5 @@
 [TestPattern]
-type        = "random"
+type        = "vecfile"
 seed        = 1000
 numrandom   = 1
 pattern     = "11111111"
@@ -8,7 +8,7 @@ bpdelay     = 1
 clkdelay    = 1000
 
 [Files]
-vecfilepath = "out/testpattern.vec"
+vecfilepath = "out/RCA16.vec"
 toppath     = "out/RCA16_sim.v"
 outpath     = "out/vsim"
 
