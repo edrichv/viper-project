@@ -1,0 +1,51 @@
+[run_parameters]
+  Command   = "blif2gds"
+
+[Circuit_Files]
+
+  gds_file    = "outGDS.gds"
+  work_dir    = "out/"
+  blif_file   = "RCA16.blif"
+
+[General_Config_File]
+
+  cell_dis_gds = "data/LSmitll_v2p1p1/LSmitll_cell_lib.toml"
+  lef_file     = "data/LSmitll_v2p1p1/lef_2_metals.lef" 
+
+[Blif_To_GDS_Parameters]
+
+  path_balance = true
+
+[Layout_Parameters]
+  input_order  = ['cin', 'a0', 'b0', 'a1', 'b1', 'a2', 'b2', 'a3', 'b3', 'a4', 'b4', 'a5', 'b5', 'a6', 'b6', 'a7', 'b7', 'a8', 'b8', 'a9', 'b9', 'a10', 'b10', 'a11', 'b11', 'a12', 'b12', 'a13', 'b13', 'a14', 'b14', 'a15', 'b15']
+
+  output_order = [
+    "sum0", 
+    "sum1", 
+    "sum2", 
+    "sum3",
+    "sum4", 
+    "sum5", 
+    "sum6", 
+    "sum7",
+    "sum8", 
+    "sum9", 
+    "sum10", 
+    "sum11",
+    "sum12", 
+    "sum13", 
+    "sum14", 
+    "sum15",
+    "cout"
+  ]
+
+[Wafer_Parameters]
+  x_offset       = 5
+  y_offset       = 5
+  grid_size      = 10             # The grid that tracks and gate stick to
+  vertical_gap   = 10             # Spacing between cells
+  horizontal_gap = 0              # Spacing between cells
+  cell_height    = 70             # The height of the cells
+  row_align      = "justify"      # Row alignment {left, centre, justify, justifyFlush}
+  pad_ver_gap    = 70             # The vertical distance between the pads and the gates/circuit
+  pad_hor_gap    = 0              # the horizontal gap between the pins/pads

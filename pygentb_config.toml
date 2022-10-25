@@ -1,0 +1,19 @@
+[TestPattern]
+type        = "random"
+seed        = 1000
+numrandom   = 1
+pattern     = "11111111"
+idelay      = 2000
+bpdelay     = 1
+clkdelay    = 1000
+
+[Files]
+vecfilepath = "out/testpattern.vec"
+toppath     = "out/RCA16_sim.v"
+outpath     = "out/vsim"
+
+[TestbenchParams]
+clockname   = "clk"
+timescale   = "1ps/100fs"
+clkperiod   = 1000
+simlength   = 70000

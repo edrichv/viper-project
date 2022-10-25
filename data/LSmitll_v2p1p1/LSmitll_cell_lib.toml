@@ -1,0 +1,129 @@
+# Author:      Jude de Villiers
+# Origin:      E&E Engineering - Stellenbosch University
+# For:         Supertools, Coldflux Project - IARPA
+# Created:     2019-09-16
+# Modified:
+# license:
+# Description: Configuration file for defining all the gates
+# File:        LSmitll_cell_lib.toml
+
+[ALL_GATES]
+  port_size   = [5.0, 5.0]        # port(pin) size [x, y]
+  ptl_width   = 5.0               # The width of the PLT track/route
+  via_size    = [5.0, 5.0]        # PTL via size [x, y]
+  bias_p_size = [2.0, 2.0]        # Baising pillar size [x, y]
+  layer_names = ["M1", "M3"]
+  list = ["SPLITT", "DFFT", "AND2T", "OR2T", "XORT", "PAD", "BUFFT"]
+
+[BUFFT]
+  size       = [40, 70]
+  origin     = [0, 0]
+  pillar     = [-1, -1]
+  pins       = ["in", "out"]
+  P1         = [5, 55]         # IN - top left
+  P2         = [35, 15]         # OUT1 - bottom left
+  gate_delay = 7
+  jj_count   = 3
+  gds_name   = "LSmitll_BUFFT_v2p1"
+  gds_f_name = "LSmitll_BUFFT.GDS"
+
+[SPLITT]
+  size       = [50, 70]
+  origin     = [0, 0]
+  pillar     = [-1, -1]
+  pins       = ["in", "out", "out"]
+  P1         = [15, 55]         # IN - top left
+  P2         = [15, 5]         # OUT1 - bottom left
+  P3         = [35, 5]         # OUT2 - bottom right
+  gate_delay = 7
+  jj_count   = 6
+  gds_name   = "LSmitll_SPLITT_v2p1"
+  gds_f_name = "LSmitll_SPLITT.GDS"
+
+[DFFT]
+  size       = [80, 70]
+  origin     = [0, 0]
+  pillar     = [-1, -1]
+  pins       = ["clk", "in", "out"]
+  P1         = [15, 55]          # CLK - top left
+  P2         = [15, 15]          # IN  - bottom left
+  P3         = [65, 15]          # OUT - bottom right
+  gate_delay = 10.3
+  jj_count   = 11
+  gds_name   = "LSmitll_DFFT_v2p1"
+  gds_f_name = "LSmitll_DFFT.GDS"
+
+[AND2T]
+  size       = [100, 70]
+  origin     = [0, 0]
+  pillar     = [-1, -1]
+  pins       = ["in", "in", "clk", "out"]
+  P1         = [15, 15]         # IN1 - bottom left
+  P2         = [85, 55]         # IN2 - top right
+  P3         = [15, 55]         # CLK - top left
+  P4         = [85, 15]         # OUT - bottom right
+  gate_delay = 7.0
+  jj_count   = 16
+  gds_name   = "LSmitll_AND2T_v2p1"
+  gds_f_name = "LSmitll_AND2T.GDS"
+
+[OR2T]
+  size       = [100, 70]
+  origin     = [0, 0]
+  pillar     = [-1, -1]
+  pins       = ["in", "in", "clk", "out"]
+  P1         = [15, 15]         # IN1 - bottom left
+  P2         = [15, 55]         # IN2 - top left
+  P3         = [85, 55]         # CLK - top right
+  P4         = [85, 15]         # OUT - bottom right
+  gate_delay = 5.5
+  jj_count   = 14
+  gds_name   = "LSmitll_OR2T_v2p1"
+  gds_f_name = "LSmitll_OR2T.GDS"
+
+[XORT]
+  size       = [100, 70]
+  origin     = [0, 0]
+  pillar     = [-1, -1]
+  pins       = ["in", "in", "clk", "out"]
+  P1         = [15, 55]         # IN1 - bottom left
+  P2         = [15, 15]         # IN2 - top left
+  P3         = [85, 55]         # CLK - top right
+  P4         = [85, 15]         # OUT - bottom right
+  gate_delay = 5.2
+  jj_count   = 18
+  gds_name   = "LSmitll_XORT_v2p1"
+  gds_f_name = "LSmitll_XORT.GDS"
+
+[PAD]
+  size       = [30, 30] # size of gate
+  origin     = [0, 0]   # the GDs origin of the gate
+  pillar     = [-1, -1]
+  pins       = ["in_out"]
+  P1         = [15, 15] #
+  gate_delay = 0        # picoseconds [ps]
+  jj_count   = 0        # USC...
+  gds_name   = "..."    # the name of the main structure in the GDS file
+  gds_f_name = "..."
+
+# [Gate_Template]
+#   size       = [x, y]           # size of gate
+#   origin     = [x, y]           # the GDs origin of the gate
+#   pillar     = [x, y]           # the position of the obstruction (obs)
+#   pins       = ["", ""]         # the pin names, must be in order, ["in_", "out_", "clk_", "in_out_"]
+#   P1         = [, ]             #
+#   P2         = [, ]             #
+#   P3         = [, ]             #
+#   P4         = [, ]             #
+#   gate_delay = dec              # picoseconds [ps] (NOT USED)
+#   jj_count   = int              # USC...  (NOT USED)
+#   gds_name   = "..."            # the name of the main structure in the GDS file
+
+#   NDROT   = "data/cell_lib/LSmitll/LSmitll_NDROT.GDS"
+
+# [NOTES]
+# ALL MEASUREMENTS are in um.
+# Pin location is at the CENTRE of the port.
+# Routing connection to the pin must be a PTL on layer M3 with M2 and M4 as shielding groundplanes.
+# The biasing pillars are on layer M5.
+# Pillars are considered as obstructions.

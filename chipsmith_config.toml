@@ -1,0 +1,123 @@
+[File_Location]
+  LEFfile = "data/LSmitll_v2p1p1/lef_2_metals.lef"
+  DEFfile = "out/RCA16_route.def"
+  GDSfile = "out/RCA16.gds"
+
+[Parameters]
+  configFileUnits     = 1e-6 
+  gdsUnits            = 1e-9
+  fill                = false
+  fillCor             = [-15, -15, 800, 900]
+  gridSize            = 10
+  fillStructureSize   = 10
+  gateHeights         = 70
+  PTLwidth            = 4.5
+  mainBiasLineWidth   = 4.0
+  biasBranchWidth     = 2.0
+  routingLayers       = ["M1", "M3"]
+  ptlConnName         = "ls_tr_ptl_conn"
+
+[LAYER_LOOKUP]
+  M1 = "M1"
+  M3 = "M3"
+
+[VIA_DEFINITIONS]
+  # Defines the layers that a specified
+  # via name in the DEF connects together
+
+  VIA23 = ["M2", "M3"]
+  VIA12 = ["M1", "M2"]
+  VIA13 = ["M1", "M3"]
+
+[VIA_STRATEGY]
+  # Defines the GDS via structure to use
+  # when traversing from one layer to another,
+  # so that via_strategy[layer_1][layer_2] contains
+  # this name. This name should correspond to the
+  # keys contained in the GDS_LOCATIONS table
+  # in this file.
+
+  [VIA_STRATEGY.M1]
+    # M1 -> M3
+    M3 = "ViaM1M3"
+  [VIA_STRATEGY.M3]
+    # M3 -> M1
+    M1 = "ViaM1M3"
+
+[METALLAYER_GDSLAYER]
+  # Translates from SFQ5ee layers
+  # to GDSii layers
+
+  M1        = 10
+  M2        = 20
+  M3        = 30
+  M5        = 50
+  TEXT      = 182
+  BOUNDARY  = 200
+
+[Biasing_Coordinate]
+
+  [Biasing_Coordinate.AND2T]
+    top       = [95]
+    bottom    = []
+  [Biasing_Coordinate.OR2T]
+    top       = [85]
+    bottom    = []
+  [Biasing_Coordinate.XORT]
+    top       = [95]
+    bottom    = []
+  [Biasing_Coordinate.SPLITT]
+    top       = [45]
+    bottom    = []
+  [Biasing_Coordinate.DFFT]
+    top       = [65]
+    bottom    = []
+
+[GDS_LOCATIONS]
+  # The gds file locations of the fill 
+  # structures and vias
+  fillAll   = "data/GDSfill/fillAll.gds"
+  fillM1    = "data/GDSfill/fillM1.gds"
+  fillM2    = "data/GDSfill/fillM2.gds"
+  fillM3    = "data/GDSfill/fillM3.gds"
+  fillM4    = "data/GDSfill/fillM4.gds"
+  fillM5    = "data/GDSfill/fillM5via.gds"
+  fillM6    = "data/GDSfill/fillM6.gds"
+  ViaM1M3   = "data/GDSfill/ViaM1M3.gds"
+
+[GDS_CELL_LOCATIONS]
+
+  LSmitll_AND2T_v2p1       = "data/LSmitll_v2p1p1/LSmitll_AND2T.GDS"
+  LSmitll_NDROT_v2p1       = "data/LSmitll_v2p1p1/LSmitll_NDROT.GDS"
+  LSmitll_BUFFT_v2p1       = "data/LSmitll_v2p1p1/Smitll_bufft.GDS"
+  LSmitll_NOTT_v2p1        = "data/LSmitll_v2p1p1/LSmitll_NOTT.GDS"
+  LSmitll_BUFF_v2p1        = "data/LSmitll_v2p1p1/LSmitll_buff.GDS"
+  LSmitll_OR2T_v2p1        = "data/LSmitll_v2p1p1/LSmitll_OR2T.GDS"
+  LSmitll_CLKSPLTT_v2p1    = "data/LSmitll_v2p1p1/LSmitll_CLKSPLTT.GDS"
+  LSmitll_PTLRX-SFQDC_v2p1 = "data/LSmitll_v2p1p1/LSmitll_PTLRX_SFQDC.GDS"
+  LSmitll_CLKSPLT_v2p1     = "data/LSmitll_v2p1p1/LSmitll_CLKSPLT.GDS"
+  LSmitll_PTLRX_v2p1       = "data/LSmitll_v2p1p1/LSmitll_ptlrx.GDS"
+  LSmitll_DCSFQ-PTLTX_v2p1 = "data/LSmitll_v2p1p1/LSmitll_DCSFQ_PTLTX.GDS"
+  LSmitll_PTLTX_v2p1       = "data/LSmitll_v2p1p1/LSmitll_PTLTX.gds"
+  LSmitll_DCSFQ_v2p1       = "data/LSmitll_v2p1p1/LSmitll_dcsfq.gds"
+  LSmitll_SFQDC_v2p1       = "data/LSmitll_v2p1p1/LSmitll_SFQDC.gds"
+  LSmitll_DFFT_v2p1        = "data/LSmitll_v2p1p1/LSmitll_DFFT.gds"
+  LSmitll_SPLITT_v2p1      = "data/LSmitll_v2p1p1/LSmitll_SPLITT.gds"
+  LSmitll_JTLT_v2p1        = "data/LSmitll_v2p1p1/LSmitll_JTLT.GDS"
+  LSmitll_XORT_v2p1        = "data/LSmitll_v2p1p1/LSmitll_XORT.GDS"
+  LSmitll_MERGET_v2p1      = "data/LSmitll_v2p1p1/LSmitll_MERGET.GDS"
+
+[GDS_MAIN_STR_NAME]
+
+  NOTT      = "LSmitll_NOTT_v2p1"
+  DFFT      = "LSmitll_DFFT_v2p1"
+  JTLT      = "LSmitll_JTLT_v2p1"
+  SPLITT    = "LSmitll_SPLITT_v2p1"
+  MERGET    = "LSmitll_MERGET_v2p1"
+  AND2T     = "LSmitll_AND2T_v2p1"
+  XORT      = "LSmitll_XORT_v2p1"
+  OR2T      = "LSmitll_OR2T_v2p1"
+  NDRO      = "LSmitll_NDROT_v2p1"
+  CLKSPLIT  = "LSmitll_CLKSPLTT_v2p1"
+  CLKBUFF   = "LSmitll_BUFFT_v2p1"
+  PAD       = "PAD"

@@ -1,0 +1,101 @@
+[FILE_LOCATIONS]
+
+    defFileName     = "out/RCA16_route.def"
+    cirFileName     = "out/RCA16.cir"
+    vFileName       = "out/RCA16.v"
+
+[PARAMETERS]
+
+    time_step               = 0.1
+    time_duration           = 4000.0
+    speedConstant           = 95.1
+    dangling_net_name       = "0"
+    force_PTL_Length        = false
+    force_PTL_length_value  = 100000.0
+    input_name_keys         = ["IN", "In", "in", "a", "b", "A", "B"]
+    output_names_keys       = ["SUM", "Sum", "sum", "OUT", "Out", "out", "q", "m"]
+    clock_names_keys        = ["CLK", "Clk", "clk", "CLOCK", "Clock", "clock"]
+    topModuleName           = "RCA16"
+    timescale               = "1ps/100fs"
+
+[INPUT_PATTERN]
+
+    clock_delay         = 50.0
+    clock_freq          = 10.0
+    input_peak          = 600
+    input_peak_time     = 1000
+    vec_file_path       = 'out/vecfile.vec'
+    ac_delay            = 50.0                 
+    bp_delay            = 1
+
+[VERILOG_MODULE_LOCATIONS]
+    LSmitll_JTLT        = "data/LSmitll_v2p1p1/LSmitll_JTLT.v"
+    LSmitll_MERGET      = "data/LSmitll_v2p1p1/LSmitll_MERGET.v"
+    LSmitll_SPLITT      = "data/LSmitll_v2p1p1/LSmitll_SPLITT.v"
+    LSmitll_DFFT        = "data/LSmitll_v2p1p1/LSmitll_DFFT.v"
+    LSmitll_NOTT        = "data/LSmitll_v2p1p1/LSmitll_NOTT.v"
+    LSmitll_AND2T       = "data/LSmitll_v2p1p1/LSmitll_AND2T.v"
+    LSmitll_OR2T        = "data/LSmitll_v2p1p1/LSmitll_OR2T.v"
+    LSmitll_XORT        = "data/LSmitll_v2p1p1/LSmitll_XORT.v"
+    LSmitll_buff        = "data/LSmitll_v2p1p1/LSmitll_BUFFT.v"
+    LSmitll_CLKSPLIT    = "data/LSmitll_v2p1p1/LSmitll_SPLITT.v"
+
+[NETLIST_LOCATIONS]
+    LSmitll_AND2T       = "data/LSmitll_v2p1p1/LSmitll_AND2T.cir"
+    LSmitll_bufft       = "data/LSmitll_v2p1p1/LSmitll_bufft.cir"
+    LSmitll_buff        = "data/LSmitll_v2p1p1/LSmitll_buff.cir"
+    LSmitll_DCSFQ_PTLTX = "data/LSmitll_v2p1p1/LSmitll_DCSFQ.cir"
+    LSmitll_DFFT        = "data/LSmitll_v2p1p1/LSmitll_DFFT.cir"
+    LSmitll_JTLT        = "data/LSmitll_v2p1p1/LSmitll_JTLT.cir"
+    LSmitll_MERGET      = "data/LSmitll_v2p1p1/LSmitll_MERGET.cir"
+    LSmitll_NDROT       = "data/LSmitll_v2p1p1/LSmitll_NDROT.cir"
+    LSmitll_NOTT        = "data/LSmitll_v2p1p1/LSmitll_NOTT.cir"
+    LSmitll_OR2T        = "data/LSmitll_v2p1p1/LSmitll_OR2T.cir"
+    LSmitll_PLTRX       = "data/LSmitll_v2p1p1/LSmitll_PTLRX.cir"
+    LSmitll_PLTTX       = "data/LSmitll_v2p1p1/LSmitll_PTLTX.cir"
+    LSmitll_PTLRX_SFQDC = "data/LSmitll_v2p1p1/LSmitll_SFQDC.cir"
+    LSmitll_SPLITT      = "data/LSmitll_v2p1p1/LSmitll_SPLITT.cir"
+    LSmitll_XORT        = "data/LSmitll_v2p1p1/LSmitll_XORT.cir"
+
+[GATE_NETLIST]
+    LSmitll_AND2T       = ["a", "b", "clk", "q"]
+    LSmitll_DCSFQ       = ["a", "q"]
+    LSmitll_DFFT        = ["a", "clk", "q"]
+    LSmitll_JTLT        = ["a", "q"]
+    LSmitll_MERGET      = ["a", "b", "q"]
+    LSmitll_NDROT       = ["a", "b", "clk", "q"]
+    LSmitll_NOTT        = ["a", "clk", "q"]
+    LSmitll_OR2T        = ["a", "b", "clk", "q"]
+    LSmitll_SPLITT      = ["a", "q", "m"]
+    LSmitll_XORT        = ["a", "b", "clk", "q"]
+    PAD                 = ["a"]
+    LSmitll_bufft       = ["a", "q"]
+    LSmitll_buff        = ["a", "q"]
+    LSMITLL_CLKSPLTT    = ["a", "q", "m"]
+    LSMITLL_CLKSPLT     = ["a", "q", "m"]
+    LSmitll_DCSFQ_PTLTX = ["a", "q"]
+    LSmitll_PTLRX_SFQDC = ["a", "q"]
+    LSmitll_SFQDC       = ["a", "q"]
+
+[TRANSLATION_TABLE]
+
+    JTLT        = "LSmitll_JTLT"
+    MERGET      = "LSmitll_MERGET"
+    SPLITT      = "LSmitll_SPLITT"
+    DFFT        = "LSmitll_DFFT"
+    NOTT        = "LSmitll_NOTT"
+    AND2T       = "LSmitll_AND2T"
+    OR2T        = "LSmitll_OR2T"
+    XORT        = "LSmitll_XORT"
+    PAD         = "PAD"
+    SFQDC       = "LSmitll_PTLRX_SFQDC"
+    DCSFQ       = "LSmitll_DCSFQ_PTLTX"
+    CLKBUFF     = "LSmitll_buff"
+    CLKSPLIT    = "LSMITLL_CLKSPLTT"
+
+    a           = "a"
+    b           = "b"
+    q           = "q"
+    q0          = "q"
+    q1          = "m"
+    clk         = "clk"

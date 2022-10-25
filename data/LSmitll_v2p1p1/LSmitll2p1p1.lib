@@ -1,0 +1,20 @@
+library(LSmitll) {
+  cell(AND2T) {
+    pin(in0) { direction: input; }
+    pin(in1) { direction: input; }
+    pin(out) { direction: output;
+             function: "(in0*in1)"; }
+  }
+  cell(OR2T) {
+    pin(in0) { direction: input; }
+    pin(in1) { direction: input; }
+    pin(out) { direction: output;
+             function: "(in0+in1)"; }
+  }
+  cell(XORT) {
+    pin(in0) { direction: input; }
+    pin(in1) { direction: input; }
+    pin(out) { direction: output;
+             function: "(in0^in1)"; }
+  }
+}

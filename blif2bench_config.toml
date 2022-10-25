@@ -1,0 +1,13 @@
+[Files]
+
+work_dir    = 'out/'
+in_blif     = 'RCA16.blif'
+out_bench   = 'RCA16.bench'
+
+[BBGT]
+
+DFFT        = "buf"
+NOTT        = "not"
+OR2T        = "or"
+XORT        = "xor"
+AND2T       = "and"
