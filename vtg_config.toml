@@ -8,7 +8,7 @@ bpdelay     = 1
 clkdelay    = 1000
 
 [Files]
-vecfilepath = "out/RCA16.vec"
+vecfilepath = "circuits/RCA16.vec"
 toppath     = "out/RCA16_sim.v"
 outpath     = "out/vsim"
 
