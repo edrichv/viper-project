@@ -3,3 +3,4 @@ out/
 ./*.v
 ./*.txt
 ./*.log
+data/*.temp

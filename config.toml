@@ -24,7 +24,7 @@
     clock_freq          = 10.0
     input_peak          = 600
     input_peak_time     = 1000
-    vec_file_path       = 'circuits/RCA16.vec'
+    vec_file_path       = 'out/RCA16.vec'
     ac_delay            = 50.0                 
     bp_delay            = 1
 
